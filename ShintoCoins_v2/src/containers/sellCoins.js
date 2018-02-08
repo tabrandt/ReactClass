@@ -19,20 +19,31 @@ class SellCoins extends Component {
 
     handleSellShintoCoinEntry = (event) => {
         console.log("Entering handleSellShintoCoinEntry");
-
+ 
         //create local variable - makes for easier debugging
         let localValue = event.target.value;
-
+ 
         //check if non-numeric value is entered
         if (isNaN(localValue))
         {
             console.log("Rejected Entry - handleSellShintoCoinEntry - non-numeric value entered");
             return;
         }
-
+ 
+        //local integer value
+        let sellShintoCoinValue = parseInt(localValue, 10);
+ 
+        //prevent user from entering a shinto coin sale value greater than what they have
+        if(this.props.numberOfShintoCoinsOwned < sellShintoCoinValue)
+        {
+            //console.log("in shintocoin shortsale check");
+            alert('You cannot short sell your shinto coins!');
+            return;
+        }
+ 
         //Update state
         this.setState({shintoCoinSaleEntry: localValue});
-
+ 
         console.log("Leaving handleSellShintoCoinEntry");
     }
 
