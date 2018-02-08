@@ -45,11 +45,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-        <Header />
-          {/* <Header color={this.state.color}/> */}
+          <Header color={this.state.color}/>
         </header>
-        <InputArea /> 
-        {/* <InputArea updateColor={(newColor) => this.setState({color:newColor})} /> */}
+        <InputArea updateColor={(newColor) => this.setState({color:newColor})} />
       </div>
     );
   }
